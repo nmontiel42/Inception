@@ -1,0 +1,27 @@
+services:
+  mariadb:
+    container_name: mariadb
+    restart: always
+    env_file: .env
+    build:
+      context: ./requeriments/mariadb
+      dockerfile: Dockerfile
+    volumes:
+      - maria_vm:/var/lib/mysql
+    networks:
+      - inception
+
+
+volumes:
+  maria_vm:
+    name: maria_vm
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/nmontiel/data/mariadb
+      o: bind
+
+networks:
+  inception:
+    name: inception
+    driver: bridge
