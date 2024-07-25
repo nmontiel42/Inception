@@ -4,7 +4,7 @@ services:
     restart: always
     env_file: .env
     build:
-      context: ./requeriments/mariadb
+      context: ./requirements/mariadb
       dockerfile: Dockerfile
     volumes:
       - maria_vm:/var/lib/mysql
