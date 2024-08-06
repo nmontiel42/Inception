@@ -5,6 +5,7 @@ RUN apt-get -y upgrade
 RUN apt-get install -y nginx openssl
 
 COPY ./tools/nginx.sh ./nginx.sh
+COPY ./conf/nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 443
 

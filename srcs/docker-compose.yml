@@ -24,6 +24,22 @@ services:
       - wp_vm:/var/www/html
     networks:
       - inception
+    depends_on:
+      - wordpress
+
+  wordpress:
+    container_name: wordpress
+    restart: always
+    env_file: .env
+    build:
+      context: ./requirements/wordpress
+      dockerfile: Dockerfile
+    volumes:
+      - wp_vm:/var/www/html
+    networks:
+      - inception
+    depends_on:
+      - mariadb
 
 
 volumes:
